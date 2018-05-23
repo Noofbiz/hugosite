@@ -1,0 +1,35 @@
+baseURL = "https://noofbiz.github.io/"
+languageCode = "en-us"
+title = "Jerry Caligiure"
+theme = "dream"
+defaultContentLanguage = "en"
+
+copyright = '<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="creative commons by-nc-sa 4.0" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>'
+
+#googleAnalytics = "******"
+
+#https://gohugo.io/templates/internal/#configure-google-analytics
+
+#disqusShortname = "******"
+
+#https://gohugo.io/templates/internal/#configure-disqus
+
+enableRobotsTXT = true
+
+pygmentsCodeFences = true
+pygmentsStyle = "monokai"
+
+[params]
+  author = "Jerry Caligiure"
+  description = "My little slice of the internets"
+  avatar = "/images/JerryAvatar.jpg"
+  motto = "I can't wait for the future!"
+  
+  email = "caligiure.ja@gmail.com"
+  github = "Noofbiz"
+  linkedin = "jerry-caligiure-6671183a"
+  codepen = "noofbiz"
+  stackoverflow = "6363054/noofbiz"
+
+  siteStartYear = 2018
+  aboutHeader = "About"
