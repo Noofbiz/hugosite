@@ -3,7 +3,7 @@ title: Engo Testing
 date: 2018-02-19T18:02:22Z
 lastmod: 2018-02-19T18:02:22Z
 author: Jerry Caligiure
-cover: /images/engotesting.jpeg
+cover: /images/engotesting/cover.jpeg
 categories: ["engo", "testing", "programming"]
 tags: ["engo", "ecs", "testing", "go"]
 ---
@@ -12,7 +12,7 @@ Testing Systems for `engo`
 
 <!--more-->
 
-I've been writing test cases for my [engoBox2dSystem](https://github.com/Noofbiz/engoBox2dSystem) lately, and have been also adding functionality to `engo` to help with this. Maybe this blog post can provide some insight into writing more tests of systems. 
+I've been writing test cases for my [engoBox2dSystem](https://github.com/Noofbiz/engoBox2dSystem) lately, and have been also adding functionality to `engo` to help with this. Maybe this blog post can provide some insight into writing more tests of systems.
 
 First, testing systems will require using the testing package, as well as `engo`'s headless mode. To showcase these, this is the test for adding entities to the mouse system:
 
@@ -26,7 +26,7 @@ func TestMouseSystemAdd(t *testing.T) {
 	}, &MouseTestScene{5})
 
 	if len(sys.entities) != 5 {
-		t.Errorf("Entity count does not match number added, have: %d, want: %d", 
+		t.Errorf("Entity count does not match number added, have: %d, want: %d",
 		len(sys.entities), 5)
 	}
 }
@@ -52,7 +52,7 @@ func (s *MouseTestScene) Setup(w *ecs.World) {
 	for i := 0; i < s.entityCount; i++ {
 		basic := ecs.NewBasic()
 		basics = append(basics, basic)
-		entity := mouseEntity{&basic, &MouseComponent{}, &common.SpaceComponent{}, nil, 
+		entity := mouseEntity{&basic, &MouseComponent{}, &common.SpaceComponent{}, nil,
 								&Box2dComponent{}}
 		entity.SpaceComponent = &common.SpaceComponent{
 			Position: engo.Point{X: float32(i * 20), Y: 0},
@@ -102,9 +102,9 @@ func cameraShift(origX, origY, transX, transY, transZ, rotation float32) (expect
 			Axis:  common.ZAxis,
 			Value: transZ,
 		})
-		expectedX = expectedX*sys.camera.Z() 
+		expectedX = expectedX*sys.camera.Z()
 					- (engo.GameWidth() * (sys.camera.Z() - 1) / 2)
-		expectedY = expectedY*sys.camera.Z() 
+		expectedY = expectedY*sys.camera.Z()
 					- (engo.GameHeight() * (sys.camera.Z() - 1) / 2)
 	}
 

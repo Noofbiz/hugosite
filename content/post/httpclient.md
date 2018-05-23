@@ -3,7 +3,7 @@ title: Building my own http Client
 date: 2018-02-26T16:39:27Z
 lastmod: 2018-02-26T16:39:27Z
 author: Jerry Caligiure
-cover: /images/httpclient.jpeg
+cover: /images/httpclient/cover.jpeg
 categories: ["Challenges"]
 tags: ["web", "go", "dailyprogrammer", "challenge"]
 ---
@@ -13,11 +13,11 @@ Building an http client from scratch!
 <!--more-->
 
 Hello! Web clients are everywhere. You're reading this on one, most likely! Nearly everything
-most poeple do on computers is making http requests, but how does that actually happen? What is 
+most poeple do on computers is making http requests, but how does that actually happen? What is
 going on when you open a website? Hopefully, this can provide some insight into that!
 
 Today I'm going to try doing a challenge from the dailyprogrammer rather
-than anything actually constructive ^_^! The challenge is 
+than anything actually constructive ^_^! The challenge is
 [here](https://www.reddit.com/r/dailyprogrammer/comments/7jzy8k/20171215_challenge_344_hard_write_a_web_client/)
 and it's basically to build an http client from the ground-up.
 
@@ -89,9 +89,9 @@ func PrintBody(url string) error {
 ```
 
 So, now I've got a start! The level for this library is around using net.Dial
-and `net.Conn`. The Dial opens a connection with the server, and returs it as 
+and `net.Conn`. The Dial opens a connection with the server, and returs it as
 a `net.Conn`. By writing to Conn, you're sending out a request. You can then read
-the server's response by reading from the Conn. 
+the server's response by reading from the Conn.
 
 Right now, however, the way this works is by carefully selecting a url. The url from the
 first example has to be changed to `"[httpbin.org]:80"` in order to work. As most
@@ -99,8 +99,8 @@ people would like to enter a url, and not deal with port numbers, host names, us
 passwords, etc. themselves this information should be either put into the url or in the
 request.
 
-Also, more often than not, an http client will want to send more than just 
-`"GET / HTTP/1.0\r\n\r\n"`. In fact, sending just this gets a 
+Also, more often than not, an http client will want to send more than just
+`"GET / HTTP/1.0\r\n\r\n"`. In fact, sending just this gets a
 400: Bad Request result from the server :P
 
 Alright, let's start with parsing those urls. Most people will expect to put in a typical
@@ -175,7 +175,7 @@ port 80, which is the standard web server port. I'll probably have to parse the 
 further down the road for Post and/or Put requests, but that'll look pretty similar,
 just looking for a '?' and then putting the values into a map[string]string. There's also
 stuff for url encoding of files and other things that could be done. The standard can
-be seen [here](https://url.spec.whatwg.org), and a true http client would implement 
+be seen [here](https://url.spec.whatwg.org), and a true http client would implement
 everything.
 
 Now, to create the proper headers. [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
@@ -227,7 +227,7 @@ func PrintBody(url string) error {
 ```
 
 When I run it like this, it works! The server accepts my request and sends me the
-proper response. However, it never breaks out of that loop. Unlike in file io, 
+proper response. However, it never breaks out of that loop. Unlike in file io,
 a server response never actually sends an EOF. It keeps the connection alive
 and waits for further input. To fix this, I'll have to actually parse the header
 of the response, find out the content length, and use that in my reader to properly
@@ -271,5 +271,5 @@ The for loop now looks like this
 
 This now properly returns the body when you make a GET request in the current URL! That's
 about how an http GET client works! I'll probably add the bonus suff later down the road,
-so keep a look out for that! Remember, the full code is available on 
+so keep a look out for that! Remember, the full code is available on
 [github!](https://github.com/Noofbiz/httpClient) Feel free to have a look!
