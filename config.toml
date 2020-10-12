@@ -1,35 +1,72 @@
-baseURL = "https://noofbiz.github.io/"
+baseurl = "/"
 languageCode = "en-us"
-title = "Jerry Caligiure"
-theme = "dream"
-defaultContentLanguage = "en"
-
-copyright = '<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="creative commons by-nc-sa 4.0" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>'
-
-#googleAnalytics = "******"
-
-#https://gohugo.io/templates/internal/#configure-google-analytics
-
-#disqusShortname = "******"
-
-#https://gohugo.io/templates/internal/#configure-disqus
-
-enableRobotsTXT = true
-
-pygmentsCodeFences = true
-pygmentsStyle = "monokai"
+theme = "terminal"
+paginate = 5
 
 [params]
-  author = "Jerry Caligiure"
-  description = "My little slice of the internets"
-  avatar = "/images/JerryAvatar.jpg"
-  motto = "I can't wait for the future!"
-  
-  email = "caligiure.ja@gmail.com"
-  github = "Noofbiz"
-  linkedin = "jerry-caligiure-6671183a"
-  codepen = "noofbiz"
-  stackoverflow = "6363054/noofbiz"
+  # dir name of your main content (default is `content/posts`).
+  # the list of set content will show up on your index page (baseurl).
+  contentTypeName = "post"
 
-  siteStartYear = 2018
-  aboutHeader = "About"
+  # ["orange", "blue", "red", "green", "pink"]
+  themeColor = "green"
+
+  # if you set this to 0, only submenu trigger will be visible
+  showMenuItems = 2
+
+  # show selector to switch language
+  showLanguageSelector = false
+
+  # set theme to full screen width
+  fullWidthTheme = false
+
+  # center theme with default width
+  centerTheme = true
+
+  # set a custom favicon (default is a `themeColor` square)
+  # favicon = "favicon.ico"
+
+  # set post to show the last updated
+  # If you use git, you can set `enableGitInfo` to `true` and then post will automatically get the last updated
+  showLastUpdated = false
+  # Provide a string as a prefix for the last update date. By default, it looks like this: 2020-xx-xx [Updated: 2020-xx-xx] :: Author
+  # updatedDatePrefix = "Updated"
+
+  # set all headings to their default size (depending on browser settings)
+  # it's set to `true` by default
+  # oneHeadingSize = false
+
+[params.twitter]
+  # set Twitter handles for Twitter cards
+  # see https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started#card-and-content-attribution
+  # do not include @
+  creator = ""
+  site = ""
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    title = "Jerry Caligiure"
+    subtitle = "Welcome to my little slice of internets!"
+    owner = "Jerry Caligiure"
+    keywords = "blag"
+    copyright = "2018"
+    menuMore = "Show more"
+    readMore = "Read more"
+    readOtherPosts = "Read other posts"
+    missingContentMessage = "Page not found..."
+    missingBackButtonLabel = "Back to home page"
+
+    [languages.en.params.logo]
+      logoText = "Jerry@Noofibz:~$"
+      logoHomeLink = "/"
+
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        identifier = "about"
+        name = "About"
+        url = "/about"
+      [[languages.en.menu.main]]
+        identifier = "showcase"
+        name = "Showcase"
+        url = "/showcase"
