@@ -3,7 +3,7 @@
 echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
 
 # Build the project.
-hugo -t dream # if using a theme, replace with `hugo -t <YOURTHEME>`
+hugo -t terminal # if using a theme, replace with `hugo -t <YOURTHEME>`
 
 # Go To Public folder
 cd public
