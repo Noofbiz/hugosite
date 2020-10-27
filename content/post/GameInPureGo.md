@@ -2,9 +2,9 @@
 title: "Creating A Game In Pure Go"
 date: 2020-10-25T20:57:37-04:00
 author: Jerry Caligiure
-cover: /images/game/game.jpg
+cover: /images/gogame/init.jpg
 categories: ["just me"]
-tags: ["good food", "duck"]
+tags: ["game", "go", "golang", "game jam"]
 ---
 
 I'm going to participate in the
